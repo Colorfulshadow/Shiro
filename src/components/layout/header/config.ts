@@ -33,7 +33,7 @@ export const headerMenuConfig: IHeaderMenu[] = [
     subMenu: [],
   },
   {
-    title: '文稿',
+    title: '文章',
     path: '/posts',
     type: 'Post',
     subMenu: [],
@@ -53,22 +53,22 @@ export const headerMenuConfig: IHeaderMenu[] = [
     path: '/timeline',
     subMenu: [
       {
-        title: '手记',
+        title: '记录的生活',
         icon: h(FaSolidFeatherAlt),
         path: '/timeline?type=note',
       },
       {
-        title: '文稿',
+        title: '写过的文章',
         icon: h(IonBook),
         path: '/timeline?type=post',
       },
       {
-        title: '回忆',
+        title: '落下的文字',
         icon: h(FaSolidCircle),
         path: '/timeline?memory=1',
       },
       {
-        title: '专栏',
+        title: '归档的记忆',
         path: '/notes/topics',
         icon: h('i', {
           className: 'i-mingcute-align-bottom-fill flex center',
@@ -77,35 +77,55 @@ export const headerMenuConfig: IHeaderMenu[] = [
     ],
   },
   {
-    title: '友链',
-    icon: h(FaSolidUserFriends),
-    path: '/friends',
+    title: '网站',
+    icon: h(FaSolidCircleNotch),
+    path: '#',
+    subMenu: [
+      {
+        title: 'zty的小铺',
+        icon: h(RMixPlanet),
+        path: 'https://buy.zty.ink',
+      },
+      {
+        title: '服务器监控',
+        icon: h('i', {
+          className: 'icon-[mingcute--server-fill] flex center',
+        }),
+        path: 'https://server.zty.ink',
+      },
+    ],
   },
-
   {
     title: '更多',
     icon: h(FaSolidCircleNotch),
     path: '#',
     subMenu: [
       {
+        title: '留言',
+        icon: h('i', {
+          className: 'icon-[mingcute--chat-1-fill] flex center',
+        }),
+        path: '/message',
+      },
+      {
         title: '思考',
         icon: h(MdiLightbulbOn20),
         path: '/thinking',
       },
       {
-        title: '项目',
+        title: '折腾',
         icon: h(MdiFlask),
         path: '/projects',
       },
       {
-        title: '一言',
+        title: '摘录',
         path: '/says',
         icon: h(FaSolidComments),
       },
       {
-        title: '跃迁',
-        icon: h(RMixPlanet),
-        path: 'https://travel.moe/go.html',
+        title: '友链',
+        icon: h(FaSolidUserFriends),
+        path: '/friends',
       },
     ],
   },
