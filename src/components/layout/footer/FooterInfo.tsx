@@ -4,8 +4,6 @@ import type { JSX } from 'react'
 import { fetchAggregationData } from '~/app/(app)/api'
 import { IonIosArrowDown } from '~/components/icons/arrow'
 import { SubscribeTextButton } from '~/components/modules/subscribe/SubscribeTextButton'
-import { FloatPopover } from '~/components/ui/float-popover'
-import { MLink } from '~/components/ui/link'
 import { clsxm } from '~/lib/helper'
 import { getQueryClient } from '~/lib/query-client.server'
 import { queries } from '~/queries/definition'
@@ -111,37 +109,37 @@ const Divider: Component = ({ className }) => {
 const PoweredBy: Component = ({ className }) => {
   return (
     <span className={className}>
-      Powered by{' '}
-      <StyledLink href="https://github.com/mx-space" target="_blank">
-        Mix Space
-      </StyledLink>
-      <span className="mx-1">&</span>
-      <FloatPopover
-        isDisabled={!process.env.COMMIT_HASH}
-        mobileAsSheet
-        type="tooltip"
-        triggerElement={
-          <StyledLink href="https://github.com/innei/Shiro" target="_blank">
-            Shiro
-          </StyledLink>
-        }
-      >
-        这是{' '}
-        <StyledLink
-          className="underline"
-          href="https://github.com/innei/Shiro"
-          target="_blank"
-        >
-          Shiro
-        </StyledLink>{' '}
-        的开源版本。
-        {process.env.COMMIT_HASH && process.env.COMMIT_URL && (
-          <MLink popper={false} href={process.env.COMMIT_URL}>
-            版本哈希：{process.env.COMMIT_HASH.slice(0, 8)}
-          </MLink>
-        )}
-      </FloatPopover>
-      .
+      {/*Powered by{' '}*/}
+      {/*<StyledLink href="https://github.com/mx-space" target="_blank">*/}
+      {/*  Mix Space*/}
+      {/*</StyledLink>*/}
+      {/*<span className="mx-1">&</span>*/}
+      {/*<FloatPopover*/}
+      {/*  isDisabled={!process.env.COMMIT_HASH}*/}
+      {/*  mobileAsSheet*/}
+      {/*  type="tooltip"*/}
+      {/*  triggerElement={*/}
+      {/*    <StyledLink href="https://github.com/innei/Shiro" target="_blank">*/}
+      {/*      Shiro*/}
+      {/*    </StyledLink>*/}
+      {/*  }*/}
+      {/*>*/}
+      {/*  这是{' '}*/}
+      {/*  <StyledLink*/}
+      {/*    className="underline"*/}
+      {/*    href="https://github.com/innei/Shiro"*/}
+      {/*    target="_blank"*/}
+      {/*  >*/}
+      {/*    Shiro*/}
+      {/*  </StyledLink>{' '}*/}
+      {/*  的开源版本。*/}
+      {/*  {process.env.COMMIT_HASH && process.env.COMMIT_URL && (*/}
+      {/*    <MLink popper={false} href={process.env.COMMIT_URL}>*/}
+      {/*      版本哈希：{process.env.COMMIT_HASH.slice(0, 8)}*/}
+      {/*    </MLink>*/}
+      {/*  )}*/}
+      {/*</FloatPopover>*/}
+      {/*.*/}
     </span>
   )
 }
@@ -197,12 +195,12 @@ const FooterBottom = async () => {
           <Divider className="inline" />
 
           <SubscribeTextButton>
-            <Divider className="hidden md:inline" />
+            {/*<Divider className="hidden md:inline" />*/}
           </SubscribeTextButton>
         </span>
-        <span className="mt-3 block md:mt-0 md:inline">
-          Stay hungry. Stay foolish.
-        </span>
+        {/*<span className="mt-3 block md:mt-0 md:inline">*/}
+        {/*  Stay hungry. Stay foolish.*/}
+        {/*</span>*/}
       </p>
       <div>
         <PoweredBy className="my-3 block md:my-0 md:inline" />
@@ -215,11 +213,11 @@ const FooterBottom = async () => {
           </>
         )}
 
-        {icp ? (
-          <Divider className="inline" />
-        ) : (
-          <Divider className="hidden md:inline" />
-        )}
+        {/*{icp ? (*/}
+        {/*  <Divider className="inline" />*/}
+        {/*) : (*/}
+        {/*  <Divider className="hidden md:inline" />*/}
+        {/*)}*/}
         <GatewayInfo />
         {/* {!!lastVisitor && (
           <>
