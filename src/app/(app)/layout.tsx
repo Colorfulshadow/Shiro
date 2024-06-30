@@ -1,12 +1,15 @@
 /* eslint-disable no-console */
-
+import { ToastContainer } from 'react-toastify'
+import { env, PublicEnvScript } from 'next-runtime-env'
 import type { Metadata, Viewport } from 'next'
-import { PublicEnvScript } from 'next-runtime-env'
 import type { PropsWithChildren } from 'react'
+
+import { ClerkProvider } from '@clerk/nextjs'
 
 import PKG from '~/../package.json'
 import { Global } from '~/components/common/Global'
 import { HydrationEndDetector } from '~/components/common/HydrationEndDetector'
+import { ScrollTop } from '~/components/common/ScrollTop'
 import { SyncServerTime } from '~/components/common/SyncServerTime'
 import { Root } from '~/components/layout/root/Root'
 import { AccentColorStyleInjector } from '~/components/modules/shared/AccentColorStyleInjector'
@@ -151,52 +154,54 @@ export default async function RootLayout(props: PropsWithChildren) {
   const themeConfig = data.theme
 
   return (
-    <AppFeatureProvider tmdb={!!process.env.TMDB_API_KEY}>
-      <html lang="zh-CN" className="noise themed" suppressHydrationWarning>
-        <head>
-          <PublicEnvScript />
-          <Global />
-          <SayHi />
-          <HydrationEndDetector />
-          <AccentColorStyleInjector color={themeConfig.config.color} />
+    <ClerkProvider publishableKey={env('NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY')}>
+      <AppFeatureProvider tmdb={!!process.env.TMDB_API_KEY}>
+        <html lang="zh-CN" className="noise themed" suppressHydrationWarning>
+          <head>
+            <PublicEnvScript />
+            <Global />
+            <SayHi />
+            <HydrationEndDetector />
+            <AccentColorStyleInjector color={themeConfig.config.color} />
 
-          <link
-            rel="shortcut icon"
-            href={themeConfig.config.site.faviconDark}
-            type="image/x-icon"
-            media="(prefers-color-scheme: dark)"
-          />
-          <link
-            rel="shortcut icon"
-            href={themeConfig.config.site.favicon}
-            type="image/x-icon"
-            media="(prefers-color-scheme: light)"
-          />
-          <ScriptInjectProvider />
-        </head>
-        <body
-          className={`${sansFont.variable} ${serifFont.variable} m-0 h-full p-0 font-sans`}
-        >
-          <WebAppProviders>
-            <AggregationProvider
-              aggregationData={data}
-              appConfig={themeConfig.config}
+            <link
+              rel="shortcut icon"
+              href={themeConfig.config.site.faviconDark}
+              type="image/x-icon"
+              media="(prefers-color-scheme: dark)"
             />
-            <div data-theme>
-              <Root>{children}</Root>
-            </div>
+            <link
+              rel="shortcut icon"
+              href={themeConfig.config.site.favicon}
+              type="image/x-icon"
+              media="(prefers-color-scheme: light)"
+            />
+            <ScriptInjectProvider />
+          </head>
+          <body
+            className={`${sansFont.variable} ${serifFont.variable} m-0 h-full p-0 font-sans`}
+          >
+            <WebAppProviders>
+              <AggregationProvider
+                aggregationData={data}
+                appConfig={themeConfig.config}
+              />
+              <div data-theme>
+                <Root>{children}</Root>
+              </div>
 
-            <TocAutoScroll />
-            <SearchPanelWithHotKey />
-            <Analyze />
-            <SyncServerTime />
-
-            {/* <ScrollTop /> */}
-            <div className="fixed inset-y-0 right-0 w-[var(--removed-body-scroll-bar-size)]" />
-          </WebAppProviders>
-        </body>
-      </html>
-    </AppFeatureProvider>
+              <TocAutoScroll />
+              <SearchPanelWithHotKey />
+              <Analyze />
+              <SyncServerTime />
+              <ToastContainer />
+              <ScrollTop />
+              <div className="fixed inset-y-0 right-0 w-[var(--removed-body-scroll-bar-size)]" />
+            </WebAppProviders>
+          </body>
+        </html>
+      </AppFeatureProvider>
+    </ClerkProvider>
   )
 }
 
@@ -206,22 +211,31 @@ const SayHi = () => {
       dangerouslySetInnerHTML={{
         __html: `var version = "${version}";
     (${function () {
-      console.log(
-        `%c Mix Space %c https://github.com/mx-space`,
-        'color: #fff; margin: 1em 0; padding: 5px 0; background: #2980b9;',
-        'margin: 1em 0; padding: 5px 0; background: #efefef;',
-      )
-      console.log(
-        `%c Shiro ${window.version} %c https://innei.in`,
-        'color: #fff; margin: 1em 0; padding: 5px 0; background: #39C5BB;',
-        'margin: 1em 0; padding: 5px 0; background: #efefef;',
+      console.info(
+        `%c                                                                            
+                                                                            
+                                                                            
+                               %c FBI WARNING %c                                
+                                                                            
+                                                                            
+%c        Federal Law provides severe civil and criminal penalties for        
+        the unauthorized reproduction,distribution, or exhibition of        
+         copyrighted motion pictures (Title 17, United States Code,         
+        Sections 501 and 508). The Federal Bureau of Investigation          
+         investigates allegations of criminal copyright infringement        
+                 (Title 17, United States Code, Section 506).               
+                                                                            
+                                                                            
+                                                                            
+`,
+        'background: #000; font-size: 18px; font-family: monospace',
+        'background: #f33; font-size: 18px; font-family: monospace; color: #eee; text-shadow:0 0 1px #fff',
+        'background: #000; font-size: 18px; font-family: monospace',
+        'background: #000; font-size: 18px; font-family: monospace; color: #ddd; text-shadow:0 0 2px #fff',
       )
 
       const motto = `
-This Personal Space Powered By Mix Space.
-Written by TypeScript, Coding with Love.
---------
-Stay hungry. Stay foolish. --Steve Jobs
+欢迎来到zty的随手记
 `
 
       if (document.firstChild?.nodeType !== Node.COMMENT_NODE) {
