@@ -16,7 +16,6 @@ import {
   IcTwotoneSignpost,
   MdiFlask,
   MdiLightbulbOn20,
-  RMixPlanet,
 } from '~/components/icons/menu-collection'
 import { isSupportIcon, SocialIcon } from '~/components/modules/home/SocialIcon'
 import { usePresentSubscribeModal } from '~/components/modules/subscribe'
@@ -186,9 +185,6 @@ const Hero = () => {
             'center text-neutral-800/80 dark:text-neutral-200/80',
           )}
         >
-          <small className="text-center">
-            当第一颗卫星飞向大气层外，我们便以为自己终有一日会征服宇宙。
-          </small>
           <span className="mt-8 animate-bounce">
             <i className="i-mingcute-right-line rotate-90 text-2xl" />
           </span>
@@ -216,7 +212,7 @@ const ActivityScreen = () => {
 
 const windsock = [
   {
-    title: '文稿',
+    title: '文章',
     path: '/posts',
     type: 'Post',
     subMenu: [],
@@ -229,34 +225,29 @@ const windsock = [
     icon: FaSolidFeatherAlt,
   },
   {
-    title: '度过的时光呀',
+    title: '时光',
     icon: FaSolidHistory,
     path: '/timeline',
   },
   {
-    title: '朋友们',
+    title: '朋友',
     icon: FaSolidUserFriends,
     path: '/friends',
   },
   {
-    title: '写下一点思考',
+    title: '思考',
     icon: MdiLightbulbOn20,
     path: '/thinking',
   },
   {
-    title: '看看我做些啥',
+    title: '折腾',
     icon: MdiFlask,
     path: '/projects',
   },
   {
-    title: '记录下一言',
+    title: '摘录',
     path: '/says',
     icon: FaSolidComments,
-  },
-  {
-    title: '跃迁',
-    icon: RMixPlanet,
-    path: 'https://travel.moe/go.html',
   },
 ]
 
@@ -273,9 +264,8 @@ const Windsock = () => {
   const { present: presentSubscribe } = usePresentSubscribeModal()
   return (
     <>
-      <div className="center mt-28 flex flex-col">
-        <div className="my-5 text-2xl font-medium">风向标</div>
-        <div className="mb-24 opacity-90">去到别去看看？</div>
+      <div className="mt-28 flex flex-col center">
+        <div className="my-5 text-2xl font-medium">到处走走？</div>
         <ul className="flex flex-col flex-wrap gap-2 gap-y-8 opacity-80 lg:flex-row">
           {windsock.map((item, index) => {
             return (
