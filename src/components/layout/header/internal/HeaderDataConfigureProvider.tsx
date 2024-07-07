@@ -1,6 +1,13 @@
 'use client'
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import {
+  createContext,
+  createElement as h,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 import { cloneDeep } from '~/lib/lodash'
 import { useAggregationSelector } from '~/providers/root/aggregation-data-provider'
@@ -25,15 +32,20 @@ export const HeaderDataConfigureProvider: Component = ({ children }) => {
     if (!pageMeta) return
     const nextMenuConfig = cloneDeep(baseHeaderMenuConfig)
     if (pageMeta) {
-      const homeIndex = nextMenuConfig.findIndex((item) => item.type === 'Home')
-      if (homeIndex !== -1) {
-        nextMenuConfig[homeIndex].subMenu = []
-        for (const page of pageMeta) {
-          nextMenuConfig[homeIndex].subMenu!.push({
-            path: `/${page.slug}`,
-            title: page.title,
-          })
-        }
+      const moreIndex = nextMenuConfig.findIndex((item) => item.type === 'More')
+      if (moreIndex !== -1) {
+        const existingMoreSubMenu = nextMenuConfig[moreIndex].subMenu || []
+        const newMoreSubMenuItems = pageMeta.map((page) => ({
+          path: `/${page.slug}`,
+          title: page.title,
+          icon: h('i', {
+            className: 'icon-[mingcute--paper-fill] flex center',
+          }),
+        }))
+        nextMenuConfig[moreIndex].subMenu = [
+          ...existingMoreSubMenu,
+          ...newMoreSubMenuItems,
+        ]
       }
     }
 

@@ -77,6 +77,11 @@ export const headerMenuConfig: IHeaderMenu[] = [
     ],
   },
   {
+    title: '友链',
+    icon: h(FaSolidUserFriends),
+    path: '/friends',
+  },
+  {
     title: '网站',
     icon: h(FaSolidCircleNotch),
     path: '#',
@@ -99,14 +104,8 @@ export const headerMenuConfig: IHeaderMenu[] = [
     title: '更多',
     icon: h(FaSolidCircleNotch),
     path: '#',
+    type: 'More',
     subMenu: [
-      {
-        title: '留言',
-        icon: h('i', {
-          className: 'icon-[mingcute--chat-1-fill] flex center',
-        }),
-        path: '/message',
-      },
       {
         title: '思考',
         icon: h(MdiLightbulbOn20),
@@ -121,11 +120,6 @@ export const headerMenuConfig: IHeaderMenu[] = [
         title: '摘录',
         path: '/says',
         icon: h(FaSolidComments),
-      },
-      {
-        title: '友链',
-        icon: h(FaSolidUserFriends),
-        path: '/friends',
       },
     ],
   },
