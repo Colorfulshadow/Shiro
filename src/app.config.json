@@ -1,28 +1,9 @@
 {
-  "// example app config": "",
   "footer": {
     "otherInfo": {
-      "date": "2020-{{now}}"
+      "date": "2024-{{now}}"
     },
     "linkSections": [
-      {
-        "name": "关于",
-        "links": [
-          {
-            "name": "关于本站",
-            "href": "/about-site"
-          },
-          {
-            "name": "关于我",
-            "href": "/about-me"
-          },
-          {
-            "name": "关于此项目",
-            "href": "https://github.com/innei/Shiro",
-            "external": true
-          }
-        ]
-      },
       {
         "name": "更多",
         "links": [
@@ -33,11 +14,6 @@
           {
             "name": "友链",
             "href": "/friends"
-          },
-          {
-            "name": "监控",
-            "href": "https://status.shizuri.net/status/main",
-            "external": true
           }
         ]
       },
@@ -50,12 +26,17 @@
           },
           {
             "name": "发邮件",
-            "href": "mailto:i@innei.ren",
+            "href": "mailto:colorfulshadowty@gmail.com",
             "external": true
           },
           {
             "name": "GitHub",
-            "href": "https://github.com/innei",
+            "href": "https://github.com/colorfulshadow",
+            "external": true
+          },
+          {
+            "name": "Telegram",
+            "href": "https://t.me/Tianii",
             "external": true
           }
         ]
@@ -63,6 +44,30 @@
     ]
   },
   "config": {
+    "color": {
+      "light": [
+        "#33A6B8",
+        "#FF6666",
+        "#26A69A",
+        "#fb7287",
+        "#69a6cc",
+        "#F11A7B",
+        "#78C1F3",
+        "#FF6666",
+        "#7ACDF6"
+      ],
+      "dark": [
+        "#F596AA",
+        "#A0A7D4",
+        "#ff7b7b",
+        "#99D8CF",
+        "#838BC6",
+        "#FFE5AD",
+        "#9BE8D8",
+        "#A1CCD1",
+        "#EAAEBA"
+      ]
+    },
     "bg": [
       "https://github.com/Innei/static/blob/master/images/F0q8mwwaIAEtird.jpeg?raw=true",
       "https://github.com/Innei/static/blob/master/images/IMG_2111.jpeg.webp.jpg?raw=true"
@@ -74,20 +79,20 @@
       "scripts": []
     },
     "site": {
-      "favicon": "/innei.svg",
-      "faviconDark": "/innei-dark.svg"
+      "favicon": "/colorduck.svg",
+      "faviconDark": "/colorduck-dark.svg"
     },
     "hero": {
       "title": {
         "template": [
           {
             "type": "h1",
-            "text": "Hi, I'm ",
+            "text": "你好呀，我是",
             "class": "font-light text-4xl"
           },
           {
             "type": "h1",
-            "text": "Innei",
+            "text": "张添翼",
             "class": "font-medium mx-2 text-4xl"
           },
           {
@@ -100,13 +105,18 @@
           },
           {
             "type": "h1",
-            "text": "A NodeJS Full Stack ",
+            "text": "一个",
             "class": "font-light text-4xl"
           },
           {
             "type": "code",
-            "text": "<Developer />",
+            "text": "折腾",
             "class": "font-medium mx-2 text-3xl rounded p-1 bg-gray-200 dark:bg-gray-800/0 hover:dark:bg-gray-800/100 bg-opacity-0 hover:bg-opacity-100 transition-background duration-200"
+          },
+          {
+            "type": "h1",
+            "text": "爱好者",
+            "class": "font-light text-4xl"
           },
           {
             "type": "span",
@@ -114,19 +124,12 @@
           }
         ]
       },
-      "description": "An independent developer coding with love."
+      "description": "我和你，可以做朋友吗？"
     },
     "module": {
-      "donate": {
+      "activity": {
         "enable": true,
-        "link": "https://afdian.net/@Innei",
-        "qrcode": [
-          "https://cdn.jsdelivr.net/gh/Innei/img-bed@master/20191211132347.png",
-          "https://cdn.innei.ren/bed/2023/0424213144.png"
-        ]
-      },
-      "bilibili": {
-        "liveId": 1434499
+        "endpoint": "/fn/ps/update"
       }
     }
   }
