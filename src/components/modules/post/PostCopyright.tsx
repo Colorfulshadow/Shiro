@@ -65,14 +65,16 @@ export const PostCopyright: FC = () => {
           进行许可。
         </p>
       </div>
-      <div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
         <img
           src="https://api.zty.ink/api/v2/objects/file/stquysfs2hmm3o0kc0.svg"
           alt="这篇文章由真人攥写，非AI生成"
+          style="max-width: 45%; height: auto;"
         />
         <img
           src="https://api.zty.ink/api/v2/objects/file/wbtebtaw0wy1dfpiw7.svg"
           alt="Written by human, not by AI"
+          style="max-width: 45%; height: auto;"
         />
       </div>
     </section>
