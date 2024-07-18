@@ -68,19 +68,32 @@ export const PostCopyright: FC = () => {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           alignItems: 'center',
+          gap: '10px', // 控制图像之间的间隙
         }}
       >
         <img
           src="https://api.zty.ink/api/v2/objects/file/stquysfs2hmm3o0kc0.svg"
           alt="这篇文章由真人攥写，非AI生成"
-          style={{ maxWidth: '45%', height: 'auto' }}
+          style={{
+            maxWidth: '45%',
+            height: 'auto',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
         />
         <img
           src="https://api.zty.ink/api/v2/objects/file/wbtebtaw0wy1dfpiw7.svg"
           alt="Written by human, not by AI"
-          style={{ maxWidth: '45%', height: 'auto' }}
+          style={{
+            maxWidth: '45%',
+            height: 'auto',
+            transition: 'transform 0.3s ease-in-out',
+          }}
+          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
         />
       </div>
     </section>
