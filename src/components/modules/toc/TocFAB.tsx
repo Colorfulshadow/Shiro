@@ -1,7 +1,7 @@
 'use client'
 
-import { useCallback, useMemo } from 'react'
 import { useParams, usePathname } from 'next/navigation'
+import { useCallback, useMemo } from 'react'
 
 import { FABPortable } from '~/components/ui/fab'
 import { useModalStack } from '~/components/ui/modal'
@@ -28,15 +28,15 @@ export const TocFAB = () => {
     })
   }, [])
   const presentToc = useCallback(() => {
-    const dispose = present({
+    present({
       title: '文章目录',
       clickOutsideToDismiss: true,
-      content: () => (
+      content: ({ dismiss }) => (
         <TocTree
           $headings={$headings!}
-          className="space-y-3 [&>li]:py-1"
+          className="max-h-full space-y-3 overflow-y-auto [&>li]:py-1"
           onItemClick={() => {
-            dispose()
+            dismiss()
           }}
           scrollInNextTick
         />
