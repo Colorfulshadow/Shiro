@@ -13,7 +13,6 @@ import {
   IonBook,
   MdiFlask,
   MdiLightbulbOn20,
-  RMixPlanet,
 } from '~/components/icons/menu-collection'
 
 export interface IHeaderMenu {
@@ -86,17 +85,31 @@ export const headerMenuConfig: IHeaderMenu[] = [
     icon: h(FaSolidCircleNotch),
     path: '#',
     subMenu: [
-      {
-        title: 'zty的小铺',
-        icon: h(RMixPlanet),
-        path: 'https://buy.zty.ink',
-      },
+      // {
+      //   title: 'zty的小铺',
+      //   icon: h(RMixPlanet),
+      //   path: 'https://buy.zty.ink',
+      // },
       {
         title: '服务器监控',
         icon: h('i', {
-          className: 'icon-[mingcute--server-fill] flex center',
+          className: 'icon-[mingcute--laptop-line] flex center',
         }),
         path: 'https://server.zty.ink',
+      },
+      {
+        title: '文件储存箱',
+        icon: h('i', {
+          className: 'icon-[mingcute--storage-fill] flex center',
+        }),
+        path: 'https://pan.zty.ink',
+      },
+      {
+        title: '女友记录册',
+        icon: h('i', {
+          className: 'icon-[mingcute--thought-fill] flex center',
+        }),
+        path: 'https://oql.zty.ink',
       },
     ],
   },
